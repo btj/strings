@@ -11,30 +11,39 @@ import java.util.stream.IntStream;
 public class String {
 	
 	/**
+	 * @invar | characters != null
+	 */
+	private char[] characters;
+	
+	/**
 	 * @post | result != null
 	 * @inspects | this
 	 * @creates | result
 	 */
-	public char[] toCharArray() { throw new RuntimeException("Not yet implemented"); }
+	public char[] toCharArray() {
+		return characters.clone();
+	}
 	
 	/**
 	 * @inspects | this
 	 * @post | result == toCharArray().length
 	 */
-	public int length() { throw new RuntimeException("Not yet implemented"); }
+	public int length() { return characters.length; }
 	
 	/**
 	 * @pre | 0 <= index && index < length()
 	 * @inspects | this
 	 * @post | result == toCharArray()[index]
 	 */
-	public char charAt(int index) { throw new RuntimeException("Not yet implemented"); }
+	public char charAt(int index) { return characters[index]; }
 	
 	/**
 	 * @pre | characters != null
 	 * @inspects | characters
 	 * @post | Arrays.equals(toCharArray(), characters)
 	 */
-	public String(char[] characters) { throw new RuntimeException("Not yet implemented"); }
+	public String(char[] characters) {
+		this.characters = characters.clone();
+	}
 
 }
